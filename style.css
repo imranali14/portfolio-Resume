@@ -979,3 +979,29 @@ section:nth-child(odd) .animate.scroll,
 .download-cv-button:hover {
     background-color: #0056b3;
 }
+
+.whatsapp-contact {
+    margin-top: 20px;
+}
+
+.whatsapp-contact {
+    /* margin-top: 20px; */
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    /* background-color: #2be340; */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+    z-index: 999999 !important;
+}
+.bxl-whatsapp:before {
+    content: "\e98a";
+    font-size: 55px !important;
+    color: #2be340;
+    ;
+}
