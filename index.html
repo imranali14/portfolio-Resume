@@ -1,435 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" class="js">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
+    <title>Imran Ali — Senior Software Engineer</title>
+    <meta name="description" content="Imran Ali — Senior Software Engineer crafting fast, secure and beautiful web & mobile products with React, Node.js, PHP and more.">
+    <meta name="theme-color" content="#07070c">
+    <meta property="og:title" content="Imran Ali — Senior Software Engineer">
+    <meta property="og:description" content="Full-stack engineer with 5+ years building fintech, web and mobile products.">
+    <meta property="og:image" content="images/imran.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%2307070c'/><text x='50' y='66' font-size='48' font-family='Arial' font-weight='700' text-anchor='middle' fill='%2300e0ff'>IA</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- box icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Include FontAwesome CSS via CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 
 <body>
-    <a href="./pdf/SrSoftwareEngineer.pdf" class="download-cv-button" download>
-        Download CV
-    </a>
-    <!-- header design -->
-    <header class="header">
-        <a href="#" class="logo">Portfolio.<span class="animate" style="--i:1;"></span></a>
+    <!-- preloader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <span class="loader-name">Imran Ali</span>
+            <span class="loader-bar"><i></i></span>
+        </div>
+    </div>
 
-        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+    <!-- ambient layers -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="bg-aurora" aria-hidden="true">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+    </div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-        <nav class="navbar">
+    <!-- header -->
+    <header class="header" id="header">
+        <a href="#home" class="logo" aria-label="Home">
+            <span class="logo-mark">IA</span>
+            <span class="logo-text">imran<em>.dev</em></span>
+        </a>
+
+        <nav class="navbar" id="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
-            <div class="btn-box btns">
-                <a href="https://drive.google.com/file/d/1WBObDvaFHJ-9ZKQS9p61WyTuGAT34DoP/view?usp=drive_link" target="_blank" class="btn">Projects</a>
-                <!-- <span class="animate scroll" style="--i:5;"></span> -->
-            </div>
-
-            <span class="active-nav"></span>
-            <span class="animate" style="--i:2;"></span>
+            <span class="nav-indicator" id="navIndicator"></span>
         </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn kbd-btn" id="openPalette" aria-label="Open command menu">
+                <i class='bx bx-command'></i><span>K</span>
+            </button>
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                <i class='bx bx-sun'></i>
+            </button>
+            <a href="./pdf/SrSoftwareEngineer.pdf" class="btn btn-sm btn-primary magnetic" download>
+                <i class='bx bx-download'></i><span>CV</span>
+            </a>
+            <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span><span></span>
+            </button>
+        </div>
     </header>
 
-    <!-- home section design -->
-    <div class="whatsapp-contact">
-        <a href="https://wa.me/923312134450" target="_blank" rel="noopener noreferrer">
-            <i class='bx bxl-whatsapp'></i>
-        </a>
-    </div>
-    <section class="home show-animate" id="home">
-        <div class="home-content">
-            <h1>Hi, I'm <span>Imran Ali</span><span class="animate" style="--i:2;"></span></h1>
-            <div class="text-animate">
-                <h3>Software Engineer</h3>
-                <span class="animate" style="--i:3;"></span>
-            </div>
-            <p>A highly accomplished, skilled and knowledgeable computer science
-                student with excellent problem solving and technical skills. Also
-                possess the skills in database and web application, Along with the
-                strong technical skills also possess excellent communication skills
-                seeking for an opportunity as a software engineer in your
-                organization                
-                <span class="animate" style="--i:4;"></span>
-            </p>
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="status-pill reveal">
+                    <span class="pulse"></span>
+                    Available for new opportunities
+                </div>
 
-            <div class="btn-box">
-                <a href="tel:03312134450" class="btn">Call Now</a>
-                <a href="mailto:imran.14ali110@gmail.com" class="btn">Email Now</a>
-                <span class="animate" style="--i:5;"></span>
-            </div>
-        </div>
+                <h1 class="hero-title">
+                    <span class="line reveal"><span class="muted">Hi, I'm</span></span>
+                    <span class="line reveal"><span class="gradient-text">Imran Ali</span></span>
+                </h1>
 
-        <div class="home-sci">
-            <a href="https://github.com/imranali14/" target="_blank" rel="noopener noreferrer">
-                <i class='bx bxl-github'></i>
-              </a>
-              <a href="https://www.linkedin.com/in/imranali92110/" target="_blank" rel="noopener noreferrer">
-                <i class='bx bxl-linkedin'></i>
+                <div class="hero-role reveal">
+                    <span class="mono">&lt;</span>
+                    <span class="typed" id="typed">Senior Software Engineer</span><span class="caret"></span>
+                    <span class="mono">/&gt;</span>
+                </div>
+
+                <p class="hero-desc reveal">
+                    I build <strong>fast, secure &amp; beautiful</strong> products for the web and mobile —
+                    from fintech banking platforms to cross-platform apps. 5+ years turning complex ideas into
+                    seamless experiences.
+                </p>
+
+                <div class="hero-cta reveal">
+                    <a href="#contact" class="btn btn-primary magnetic">
+                        <span>Let's Talk</span><i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1WBObDvaFHJ-9ZKQS9p61WyTuGAT34DoP/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-ghost magnetic">
+                        <i class='bx bx-folder-open'></i><span>View Projects</span>
+                    </a>
+                </div>
+
+                <div class="hero-socials reveal">
+                    <a href="https://github.com/imranali14/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="magnetic"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/imranali92110/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="magnetic"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://stackoverflow.com/users/17788586/imran-ali" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow" class="magnetic"><i class='fab fa-stack-overflow'></i></a>
+                    <a href="https://wa.me/923312134450" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="magnetic"><i class='bx bxl-whatsapp'></i></a>
+                    <span class="divider"></span>
+                    <span class="hint">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to explore</span>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="avatar-wrap tilt">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar">
+                        <img src="images/imran.jpg" alt="Imran Ali">
+                    </div>
+                    <div class="orbit orbit-1"><span class="chip"><i class='bx bxl-react'></i> React</span></div>
+                    <div class="orbit orbit-2"><span class="chip"><i class='bx bxl-nodejs'></i> Node.js</span></div>
+                    <div class="orbit orbit-3"><span class="chip"><i class='bx bxl-php'></i> Laravel</span></div>
+                    <div class="float-card fc-1">
+                        <span class="fc-num"><b data-count="5">0</b>+</span>
+                        <span class="fc-label">Years<br>Experience</span>
+                    </div>
+                    <div class="float-card fc-2">
+                        <i class='bx bx-shield-quarter'></i>
+                        <span class="fc-label">Fintech<br>Banking</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll down">
+                <span class="mouse"><i></i></span>
+                <span>Scroll</span>
             </a>
-            <a href="https://stackoverflow.com/users/17788586/imran-ali" target="_blank" rel="noopener noreferrer">
-                <i class='fab fa-stack-overflow'></i>
-            </a>
-            
-            <span class="animate" style="--i:6;"></span>
-        </div>
+        </section>
 
-        <div class="home-imgHover"></div>
-        <span class="animate home-img" style="--i:7;"></span>
-    </section>
-
-    <!-- about section design -->
-    <section class="about" id="about">
-        <h2 class="heading">About <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
-
-        <div class="about-img">
-            <img src="images/imran.jpg" alt="">
-            <span class="circle-spin"></span>
-            <span class="animate scroll" style="--i:2;"></span>
-        </div>
-
-        <div class="about-content">
-            <h3>Hi there! Glad to see you here.<span class="animate scroll" style="--i:3;"></span></h3>
-            <p>Hello! Imran Ali here. A technology fanatic!<br>
-                I am a Computer Science graduate and a seasoned full-stack developer with a rich tapestry of experiences spanning five years. My professional journey has been dynamic, involving extensive hands-on work in diverse areas, from proficiently managing back-end operations to crafting seamless front-end experiences and handling intricate database structures.
-
-                Passionate about continual growth, I actively pursue opportunities to learn new technologies and methodologies, ensuring that I stay at the forefront of the ever-evolving tech landscape.
-                
-                My approach to work can be defined by qualities such as determination, motivation, commitment, and responsibility. I am result-driven, consistently delivering high-quality solutions while maintaining honesty and integrity in every aspect of my professional life. I have a knack for finding the positive aspects in challenges, fostering a constructive and optimistic work environment.
-                
-                I thrive in collaborative settings and appreciate the richness that diversity brings to a team. Working with people from various cultural backgrounds is not just a preference but a reflection of my belief in the strength of inclusive and diverse collaborations.
-                
-                Core Engineering Skills:
-                
-                 JavaScript
-                 NodeJS
-                 AngularJS
-                 PHP
-                 MySQL
-                 MongoDB
-                 ReactJS
-                 ReactNative
-                 SQL Server
-                 HTML
-                 CSS
-                 Bootstrap
-                 NestJs
-                 WordPress
-                 SquareSpace
-                 WebFlow
-                
-                While the above technologies represent my core proficiency, I consider myself a polyglot developer, adept at swiftly adapting to new technologies and frameworks. This adaptability has been a cornerstone of my success, allowing me to tackle challenges with a versatile skill set.
-                
-                In addition to my technical prowess, I have successfully contributed to [mention specific projects or achievements], showcasing my ability to translate skills into tangible results.
-                
-                I am excited about the possibilities that lie ahead and look forward to leveraging my expertise to drive innovation and excellence in future endeavors.
-                <span class="animate scroll" style="--i:4;"></span>
-            </p>
-
-            <div class="btn-box btns">
-                <a href="tel:03312134450" class="btn">Contact Me</a>
-                <span class="animate scroll" style="--i:5;"></span>
+        <!-- MARQUEE -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>React</span><i>✦</i><span>Node.js</span><i>✦</i><span>NestJS</span><i>✦</i><span>React Native</span><i>✦</i>
+                <span>PHP</span><i>✦</i><span>Laravel</span><i>✦</i><span>MongoDB</span><i>✦</i><span>MySQL</span><i>✦</i>
+                <span>SQL Server</span><i>✦</i><span>AngularJS</span><i>✦</i><span>WordPress</span><i>✦</i><span>Webflow</span><i>✦</i>
+                <span>React</span><i>✦</i><span>Node.js</span><i>✦</i><span>NestJS</span><i>✦</i><span>React Native</span><i>✦</i>
+                <span>PHP</span><i>✦</i><span>Laravel</span><i>✦</i><span>MongoDB</span><i>✦</i><span>MySQL</span><i>✦</i>
+                <span>SQL Server</span><i>✦</i><span>AngularJS</span><i>✦</i><span>WordPress</span><i>✦</i><span>Webflow</span><i>✦</i>
             </div>
         </div>
-    </section>
 
-    <!-- education section design -->
-    <section class="education" id="education">
-        <h2 class="heading">My <span>Journey</span><span class="animate scroll" style="--i:1;"></span></h2>
-
-        <div class="education-row">
-            <div class="education-column">
-                <h3 class="title">Education<span class="animate scroll" style="--i:2;"></span></h3>
-
-                <div class="education-box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2016 - 2020</div>
-                            <h3>Bachelors Degree - IQRA University</h3>
-                            <p>Completed Bachelor in Computer Science</p>
-                        </div>
-                    </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2014 - 2016</div>
-                            <h3>Intermediate - NCR-Collage</h3>
-                            <p>Completed Intermediate in Pre-Enginnering </p>
-                        </div>
-                    </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2019 - 2020</div>
-                            <h3>Matriculation - Fatmiyah Boys School</h3>
-                            <p>Completed Matriculation in Science</p>
-                        </div>
-                    </div>
-
-                    <span class="animate scroll" style="--i:3;"></span>
-                </div>
+        <!-- ABOUT (bento) -->
+        <section class="section" id="about">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="mono">01</span> — About</span>
+                <h2 class="section-title">A technology <span class="gradient-text">fanatic</span><br>who ships.</h2>
             </div>
 
-            <div class="education-column">
-                <h3 class="title">Experience<span class="animate scroll" style="--i:5;"></span></h3>
+            <div class="bento">
+                <article class="card bento-intro glow-card reveal">
+                    <div class="card-tag"><i class='bx bx-user'></i> Who I am</div>
+                    <h3>Hi there! Glad to see you here. 👋</h3>
+                    <p>
+                        I'm a Computer Science graduate and a seasoned <strong>full-stack developer</strong> with
+                        five years of hands-on experience — from managing back-end operations to crafting seamless
+                        front-end experiences and designing intricate database structures.
+                    </p>
+                    <p>
+                        I'm a <strong>polyglot developer</strong> who adapts quickly to new technologies and
+                        frameworks. Result-driven, honest and optimistic — I thrive in diverse, collaborative teams
+                        and love turning challenges into well-crafted solutions.
+                    </p>
+                </article>
 
-                <div class="education-box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2023 - Present</div>
-                            <h3>Senior Software Engineer - Avanza Solutions</h3>
-                            <p>
-                                As a Senior Software Engineer at Avanza Solutions, I have been a key contributor to a cutting-edge fintech banking project. My primary focus has been on developing robust and scalable solutions using React.js, a leading front-end JavaScript library.
-                                <br><br>
-                                Responsibilities and Achievements:
-                                <ul>
-                                    <li>Lead the front-end development efforts, collaborating closely with cross-functional teams to deliver high-quality software solutions.</li>
-                                    <li>Architected and implemented complex user interfaces, ensuring a seamless and intuitive user experience for financial applications.</li>
-                                    <li>Played a pivotal role in optimizing application performance, resulting in faster load times and improved overall responsiveness.</li>
-                                    <li>Integrated third-party APIs and financial services to enhance the functionality and features of the banking platform.</li>
-                                    <li>Worked on implementing security best practices to ensure the integrity and confidentiality of financial data.</li>
-                                    <li>Participated in code reviews, mentoring junior developers, and fostering a collaborative development environment.</li>
-                                    <li>Contributed to the continuous improvement of development processes, tools, and methodologies.</li>
-                                </ul>
-                            </p>
+                <article class="card bento-stat glow-card reveal">
+                    <span class="stat-num"><b data-count="5">0</b>+</span>
+                    <span class="stat-label">Years of experience</span>
+                </article>
+
+                <article class="card bento-stat glow-card reveal">
+                    <span class="stat-num"><b data-count="16">0</b>+</span>
+                    <span class="stat-label">Technologies mastered</span>
+                </article>
+
+                <article class="card bento-now glow-card reveal">
+                    <div class="card-tag"><span class="pulse small"></span> Currently</div>
+                    <h4>Senior Software Engineer</h4>
+                    <p>@ Avanza Solutions — building a cutting-edge <strong>fintech banking</strong> platform with React.js.</p>
+                </article>
+
+                <article class="card bento-values glow-card reveal">
+                    <div class="card-tag"><i class='bx bx-heart'></i> How I work</div>
+                    <div class="value-list">
+                        <span>Determination</span><span>Motivation</span><span>Commitment</span>
+                        <span>Responsibility</span><span>Integrity</span><span>Result-driven</span>
+                    </div>
+                </article>
+
+                <article class="card bento-location glow-card reveal">
+                    <div class="globe"><i class='bx bx-world'></i></div>
+                    <div>
+                        <div class="card-tag"><i class='bx bx-map'></i> Based in</div>
+                        <h4>Karachi, Pakistan</h4>
+                        <p>Open to remote &amp; on-site roles</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="mono">02</span> — Experience</span>
+                <h2 class="section-title">Where I've <span class="gradient-text">made impact</span>.</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"><span id="timelineFill"></span></div>
+
+                <article class="t-item reveal">
+                    <div class="t-dot"></div>
+                    <div class="card t-card glow-card">
+                        <div class="t-head">
+                            <div>
+                                <span class="t-date"><i class='bx bx-calendar'></i> 2023 — Present</span>
+                                <h3>Senior Software Engineer</h3>
+                                <span class="t-company">Avanza Solutions</span>
+                            </div>
+                            <span class="badge badge-live">Current</span>
+                        </div>
+                        <p>Key contributor to a cutting-edge <strong>fintech banking</strong> project, developing robust and scalable solutions with React.js.</p>
+                        <div class="t-tags"><span>React.js</span><span>Fintech</span><span>Security</span><span>Performance</span></div>
+                        <details>
+                            <summary><span>Responsibilities &amp; achievements</span><i class='bx bx-chevron-down'></i></summary>
+                            <ul>
+                                <li>Lead front-end development, collaborating closely with cross-functional teams to deliver high-quality software.</li>
+                                <li>Architected complex user interfaces for a seamless, intuitive financial-app experience.</li>
+                                <li>Optimized application performance — faster load times and improved responsiveness.</li>
+                                <li>Integrated third-party APIs and financial services to extend the banking platform.</li>
+                                <li>Implemented security best practices to protect the integrity and confidentiality of financial data.</li>
+                                <li>Code reviews and mentoring of junior developers in a collaborative environment.</li>
+                                <li>Continuous improvement of development processes, tools and methodologies.</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+
+                <article class="t-item reveal">
+                    <div class="t-dot"></div>
+                    <div class="card t-card glow-card">
+                        <div class="t-head">
+                            <div>
+                                <span class="t-date"><i class='bx bx-calendar'></i> 2020 — 2023</span>
+                                <h3>Software Engineer</h3>
+                                <span class="t-company">KoderLabs</span>
+                            </div>
+                        </div>
+                        <p>Played a crucial role across diverse projects spanning web, backend and cross-platform mobile.</p>
+                        <div class="t-tags"><span>React.js</span><span>Node.js</span><span>PHP</span><span>Laravel</span><span>WordPress</span><span>React Native</span></div>
+                        <details>
+                            <summary><span>Responsibilities &amp; achievements</span><i class='bx bx-chevron-down'></i></summary>
+                            <ul>
+                                <li>Led design and implementation of user interfaces in React.js with optimal performance.</li>
+                                <li>Developed scalable, efficient server-side applications with Node.js.</li>
+                                <li>Built robust, secure PHP applications including projects on the Laravel framework.</li>
+                                <li>Designed and customized WordPress sites with themes and plugins for specific requirements.</li>
+                                <li>Created cross-platform mobile apps with React Native for a unified iOS &amp; Android experience.</li>
+                                <li>Code reviews, debugging and troubleshooting to ship high-quality software.</li>
+                                <li>Continuous learning, staying abreast of industry trends and best practices.</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+
+                <article class="t-item reveal">
+                    <div class="t-dot"></div>
+                    <div class="card t-card glow-card">
+                        <div class="t-head">
+                            <div>
+                                <span class="t-date"><i class='bx bx-calendar'></i> 2019 — 2020</span>
+                                <h3>Junior Software Engineer Intern</h3>
+                                <span class="t-company">Teknoloje Solutions</span>
+                            </div>
+                        </div>
+                        <p>Gained hands-on experience contributing to projects built with modern web technologies.</p>
+                        <div class="t-tags"><span>React.js</span><span>Node.js</span><span>PHP</span><span>Laravel</span></div>
+                        <details>
+                            <summary><span>Key contributions</span><i class='bx bx-chevron-down'></i></summary>
+                            <ul>
+                                <li>Assisted in developing responsive, intuitive user interfaces with React.js.</li>
+                                <li>Contributed to scalable backend services with Node.js.</li>
+                                <li>Worked on secure, performant PHP / Laravel web applications.</li>
+                                <li>Took part in the full SDLC — requirements, testing and deployment.</li>
+                                <li>Collaborated with cross-functional teams to troubleshoot and debug code.</li>
+                                <li>Proactively learned and adopted new technologies.</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="mono">03</span> — Skills</span>
+                <h2 class="section-title">My <span class="gradient-text">toolbox</span>.</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="card skill-group glow-card reveal">
+                    <div class="sg-head"><i class='bx bx-code-alt'></i><h3>Frontend</h3></div>
+                    <div class="skill-chips">
+                        <span class="skill" style="--lvl:90"><i class='bx bxl-html5'></i>HTML<b>90%</b></span>
+                        <span class="skill" style="--lvl:90"><i class='bx bxl-css3'></i>CSS<b>90%</b></span>
+                        <span class="skill" style="--lvl:70"><i class='bx bxl-javascript'></i>JavaScript<b>70%</b></span>
+                        <span class="skill" style="--lvl:60"><i class='bx bxl-react'></i>React.js<b>60%</b></span>
+                        <span class="skill"><i class='bx bxl-react'></i>React Native<b></b></span>
+                        <span class="skill"><i class='bx bxl-angular'></i>AngularJS<b></b></span>
+                        <span class="skill"><i class='bx bxl-bootstrap'></i>Bootstrap<b></b></span>
+                    </div>
+                </div>
+
+                <div class="card skill-group glow-card reveal">
+                    <div class="sg-head"><i class='bx bx-server'></i><h3>Backend &amp; Data</h3></div>
+                    <div class="skill-chips">
+                        <span class="skill" style="--lvl:60"><i class='bx bxl-nodejs'></i>Node.js<b>60%</b></span>
+                        <span class="skill"><i class='bx bx-cube'></i>NestJS<b></b></span>
+                        <span class="skill" style="--lvl:60"><i class='bx bxl-php'></i>PHP<b>60%</b></span>
+                        <span class="skill" style="--lvl:80"><i class='bx bx-layer'></i>Laravel<b>80%</b></span>
+                        <span class="skill"><i class='bx bx-data'></i>MySQL<b></b></span>
+                        <span class="skill"><i class='bx bxl-mongodb'></i>MongoDB<b></b></span>
+                        <span class="skill"><i class='bx bx-hdd'></i>SQL Server<b></b></span>
+                    </div>
+                </div>
+
+                <div class="card skill-group glow-card reveal">
+                    <div class="sg-head"><i class='bx bx-palette'></i><h3>CMS &amp; No-code</h3></div>
+                    <div class="skill-chips">
+                        <span class="skill" style="--lvl:80"><i class='bx bxl-wordpress'></i>WordPress<b>80%</b></span>
+                        <span class="skill" style="--lvl:60"><i class='bx bx-globe'></i>Webflow<b>60%</b></span>
+                        <span class="skill" style="--lvl:60"><i class='bx bx-square'></i>Squarespace<b>60%</b></span>
+                        <span class="skill" style="--lvl:50"><i class='bx bx-shopping-bag'></i>Shopify<b>50%</b></span>
+                    </div>
+                </div>
+
+                <div class="card skill-rings glow-card reveal">
+                    <div class="sg-head"><i class='bx bx-brain'></i><h3>Professional Skills</h3></div>
+                    <div class="rings">
+                        <div class="ring" style="--p:95"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>95</b>%</div><span>Problem Solving</span></div>
+                        <div class="ring" style="--p:80"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>80</b>%</div><span>Web Development</span></div>
+                        <div class="ring" style="--p:80"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>80</b>%</div><span>Project Management</span></div>
+                        <div class="ring" style="--p:80"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>80</b>%</div><span>Continuous Learning</span></div>
+                        <div class="ring" style="--p:70"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>70</b>%</div><span>Frontend Frameworks</span></div>
+                        <div class="ring" style="--p:70"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>70</b>%</div><span>Quality Assurance</span></div>
+                        <div class="ring" style="--p:65"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>65</b>%</div><span>API Design</span></div>
+                        <div class="ring" style="--p:60"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg><div class="ring-val"><b>60</b>%</div><span>Database Mgmt</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section" id="education">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="mono">04</span> — Education</span>
+                <h2 class="section-title">The <span class="gradient-text">foundation</span>.</h2>
+            </div>
+
+            <div class="edu-grid">
+                <article class="card edu-card glow-card tilt reveal">
+                    <div class="edu-icon"><i class='bx bxs-graduation'></i></div>
+                    <span class="t-date"><i class='bx bx-calendar'></i> 2016 — 2020</span>
+                    <h3>Bachelor of Computer Science</h3>
+                    <p>IQRA University</p>
+                    <span class="edu-num">01</span>
+                </article>
+                <article class="card edu-card glow-card tilt reveal">
+                    <div class="edu-icon"><i class='bx bx-book-open'></i></div>
+                    <span class="t-date"><i class='bx bx-calendar'></i> 2014 — 2016</span>
+                    <h3>Intermediate — Pre-Engineering</h3>
+                    <p>NCR College</p>
+                    <span class="edu-num">02</span>
+                </article>
+                <article class="card edu-card glow-card tilt reveal">
+                    <div class="edu-icon"><i class='bx bx-atom'></i></div>
+                    <span class="t-date"><i class='bx bx-calendar'></i> 2012 — 2014</span>
+                    <h3>Matriculation — Science</h3>
+                    <p>Fatmiyah Boys School</p>
+                    <span class="edu-num">03</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="section">
+            <div class="cta-banner reveal">
+                <div class="cta-glow"></div>
+                <h2>Have an idea? <br><span class="gradient-text">Let's build it together.</span></h2>
+                <p>From fintech dashboards to mobile apps — I'd love to hear what you're working on.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary magnetic"><span>Start a project</span><i class='bx bx-right-arrow-alt'></i></a>
+                    <a href="https://drive.google.com/file/d/1WBObDvaFHJ-9ZKQS9p61WyTuGAT34DoP/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-ghost magnetic"><i class='bx bx-folder-open'></i><span>See my work</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="mono">05</span> — Contact</span>
+                <h2 class="section-title">Let's <span class="gradient-text">connect</span>.</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <button class="card contact-card glow-card reveal" id="copyEmail" data-email="imran.14ali110@gmail.com">
+                        <span class="cc-icon"><i class='bx bx-envelope'></i></span>
+                        <span class="cc-body">
+                            <span class="cc-label">Email — click to copy</span>
+                            <span class="cc-value">imran.14ali110@gmail.com</span>
+                        </span>
+                        <i class='bx bx-copy cc-action'></i>
+                    </button>
+                    <a href="tel:03312134450" class="card contact-card glow-card reveal">
+                        <span class="cc-icon"><i class='bx bx-phone'></i></span>
+                        <span class="cc-body">
+                            <span class="cc-label">Phone</span>
+                            <span class="cc-value">+92 331 2134450</span>
+                        </span>
+                        <i class='bx bx-right-arrow-alt cc-action'></i>
+                    </a>
+                    <a href="https://wa.me/923312134450" target="_blank" rel="noopener noreferrer" class="card contact-card glow-card reveal">
+                        <span class="cc-icon wa"><i class='bx bxl-whatsapp'></i></span>
+                        <span class="cc-body">
+                            <span class="cc-label">WhatsApp</span>
+                            <span class="cc-value">Chat instantly</span>
+                        </span>
+                        <i class='bx bx-right-arrow-alt cc-action'></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/imranali92110/" target="_blank" rel="noopener noreferrer" class="card contact-card glow-card reveal">
+                        <span class="cc-icon li"><i class='bx bxl-linkedin'></i></span>
+                        <span class="cc-body">
+                            <span class="cc-label">LinkedIn</span>
+                            <span class="cc-value">/in/imranali92110</span>
+                        </span>
+                        <i class='bx bx-right-arrow-alt cc-action'></i>
+                    </a>
+                </div>
+
+                <form class="card contact-form glow-card reveal" action="images/process-form.php" method="post">
+                    <div class="form-row">
+                        <div class="field">
+                            <input type="text" id="fullName" name="fullName" placeholder=" " required>
+                            <label for="fullName">Full Name</label>
+                        </div>
+                        <div class="field">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Email</label>
                         </div>
                     </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2020 - 2023</div>
-                            <h3>Software Engineer - KoderLabs</h3>
-                            <p>
-                                As a Software Engineer at KoderLabs, I have played a crucial role in the development of diverse projects encompassing a wide range of technologies. My expertise extends across React.js, Node.js, PHP, Laravel, WordPress, and React Native.
-                                <br><br>
-                                Responsibilities and Achievements:
-                                <ul>
-                                    <li>Led the design and implementation of user interfaces using React.js, ensuring optimal performance and a seamless user experience.</li>
-                                    <li>Developed scalable and efficient server-side applications using Node.js, handling concurrent requests and optimizing backend processes.</li>
-                                    <li>Contributed to the development of robust and secure PHP applications, including projects built on the Laravel framework.</li>
-                                    <li>Designed and customized WordPress websites, implementing themes and plugins to meet specific project requirements.</li>
-                                    <li>Collaborated on the creation of cross-platform mobile applications using React Native, providing a unified user experience across iOS and Android platforms.</li>
-                                    <li>Participated in code reviews, debugging, and troubleshooting to ensure the delivery of high-quality software solutions.</li>
-                                    <li>Engaged in continuous learning and adaptation to emerging technologies, staying abreast of industry trends and best practices.</li>
-                                </ul>
-                            </p>
+                    <div class="form-row">
+                        <div class="field">
+                            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder=" " required>
+                            <label for="mobileNumber">Mobile Number</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="emailSubject" name="emailSubject" placeholder=" " required>
+                            <label for="emailSubject">Subject</label>
                         </div>
                     </div>
-
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> 2019 - 2020</div>
-                            <h3>Junior Software Engineer Intern - TEKNOLOJE SOLUTIONS</h3>
-                            <p>
-                                As a Junior Software Engineer Intern at TEKNOLOJE SOLUTIONS, I have had the opportunity to gain hands-on experience and contribute to projects involving cutting-edge technologies. My focus has been on React.js, Node.js, PHP, and Laravel.
-                                <br><br>
-                                Key Contributions:
-                                <ul>
-                                    <li>Assisted in the development of user interfaces using React.js, collaborating with the team to deliver responsive and intuitive web applications.</li>
-                                    <li>Participated in the design and implementation of backend services using Node.js, contributing to the creation of scalable and efficient server-side components.</li>
-                                    <li>Worked on PHP-based projects, gaining proficiency in the Laravel framework and actively contributing to the development of secure and performant web applications.</li>
-                                    <li>Engaged in the software development lifecycle, from requirements gathering to testing and deployment, under the guidance of experienced team members.</li>
-                                    <li>Collaborated with cross-functional teams to troubleshoot and debug code, ensuring the delivery of high-quality software solutions.</li>
-                                    <li>Demonstrated a proactive approach to learning and adapting to new technologies, contributing to a dynamic and innovative work environment.</li>
-                                </ul>
-                            </p>
-                        </div>
+                    <div class="field">
+                        <textarea id="message" name="message" rows="6" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
                     </div>
-
-                    <span class="animate scroll" style="--i:6;"></span>
-                </div>
+                    <button type="submit" class="btn btn-primary btn-block magnetic">
+                        <span>Send Message</span><i class='bx bx-send'></i>
+                    </button>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- skills section design -->
-    <section class="skills" id="skills">
-        <h2 class="heading">My <span>Skills</span><span class="animate scroll" style="--i:1;"></span></h2>
-
-        <div class="skills-row">
-            <div class="skills-column">
-                <h3 class="title">Coding Skills<span class="animate scroll" style="--i:2;"></span></h3>
-
-                <div class="skills-box">
-                    <div class="skills-content">
-                        <div class="progress">
-                            <h3>HTML <span>90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>CSS <span>90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>JavaScript <span>70%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>React Js <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Node Js <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Php <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Laravel <span>80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>WordPress<span>80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>WebFlow <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>SquareSpace <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Shopify <span>50%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-
-                    <span class="animate scroll" style="--i:3;"></span>
-                </div>
-            </div>
-
-            <div class="skills-column">
-                <h3 class="title">Professional Skills<span class="animate scroll" style="--i:5;"></span></h3>
-
-                <div class="skills-box">
-                    <div class="skills-content">
-                        <div class="progress">
-                            <h3>Problem Solving <span>95%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>Web Development <span>80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>API Design and Integration <span>65%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-
-                        <div class="progress">
-                            <h3>Project Management <span>80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Frontend Frameworks <span>70%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Backend Technologies <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Database Management <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Quality Assurance <span>70%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Continuous Learning <span>80%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-
-                    <span class="animate scroll" style="--i:6;"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- contact section design -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
-
-        <form action="process-form.php" method="post">
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" placeholder="Full Name" name="fullName" required>
-                    <span class="focus"></span>
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="Email" name="email" required>
-                    <span class="focus"></span>
-                </div>
-
-                <span class="animate scroll" style="--i:3;"></span>
-            </div>
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="number" placeholder="Mobile Number" name="mobileNumber" required>
-                    <span class="focus"></span>
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="Email Subject" name="emailSubject" required>
-                    <span class="focus"></span>
-                </div>
-
-                <span class="animate scroll" style="--i:5;"></span>
-            </div>
-
-            <div class="textarea-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" name="message" required></textarea>
-                <span class="focus"></span>
-
-                <span class="animate scroll" style="--i:7;"></span>
-            </div>
-
-            <div class="btn-box btns">
-                <button type="submit" class="btn">Submit</button>
-
-                <span class="animate scroll" style="--i:9;"></span>
-            </div>
-        </form>
-    </section>
-
-    <!-- footer design -->
+    <!-- footer -->
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2024 | Designed and
-                Maintenance by Imran Ali| All
-                Rights Reserved</p>
-
-            <span class="animate scroll" style="--i:1;"></span>
-        </div>
-
-        <div class="footer-iconTop">
-            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
-
-            <span class="animate scroll" style="--i:3;"></span>
+        <div class="footer-big" aria-hidden="true">IMRAN ALI</div>
+        <div class="footer-bar">
+            <p>&copy; <span id="year">2026</span> Imran Ali — Designed &amp; built with <i class='bx bxs-heart'></i></p>
+            <div class="footer-links">
+                <a href="https://github.com/imranali14/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/imranali92110/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://stackoverflow.com/users/17788586/imran-ali" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow"><i class='fab fa-stack-overflow'></i></a>
+            </div>
+            <a href="#home" class="to-top magnetic" aria-label="Back to top"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
+    <!-- floating whatsapp -->
+    <a href="https://wa.me/923312134450" class="fab-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
+    <!-- command palette -->
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command menu">
+        <div class="palette-backdrop" data-close></div>
+        <div class="palette-box">
+            <div class="palette-search">
+                <i class='bx bx-search'></i>
+                <input type="text" id="paletteInput" placeholder="Type a command or search…" autocomplete="off">
+                <kbd>ESC</kbd>
+            </div>
+            <ul class="palette-list" id="paletteList"></ul>
+            <div class="palette-foot">
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> select</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- toast -->
+    <div class="toast" id="toast"><i class='bx bx-check-circle'></i><span></span></div>
 
     <script src="script.js"></script>
 </body>
