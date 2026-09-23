@@ -131,7 +131,7 @@ $$('[data-count]').forEach(el => countObserver.observe(el));
 // typing roles
 const roles = [
     'Senior Software Engineer',
-    'Full-Stack Developer',
+    'Full Stack Engineer',
     'React & Node.js Specialist',
     'Fintech Builder',
     'React Native Developer'
